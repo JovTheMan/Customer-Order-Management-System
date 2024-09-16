@@ -57,3 +57,20 @@ function placeOrder(customerName, orderedItems) {
 // Example usage of placeOrder function:
 placeOrder('John Doe', [{ name: 'Espresso', quantity: 2 }, { name: 'Latte', quantity: 1 }]);
 placeOrder('Jane Smith', [{ name: 'Mocha', quantity: 5 }]); // Error due to insufficient stock
+
+// Task 4: Function to Calculate Total for an Order
+// This function accepts an order object and calculates the total amount by summing up the prices of all ordered items.
+function calculateOrderTotal(order) {
+    let total = 0;
+    order.items.forEach(item => {
+        const product = inventory.find(p => p.name === item.name); // Find product in inventory
+        if (product) {
+            total += product.price * item.quantity; // Add price of product multiplied by its quantity to the total
+        }
+    });
+    return total; // Return the total price for the order
+}
+
+// Example usage of calculateOrderTotal function:
+const order = orders[0]; // Fetch the first order (John Doe's order)
+console.log(`Total for ${order.customerName}'s order: $${calculateOrderTotal(order)}`);
