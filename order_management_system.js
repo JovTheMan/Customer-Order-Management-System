@@ -74,3 +74,20 @@ function calculateOrderTotal(order) {
 // Example usage of calculateOrderTotal function:
 const order = orders[0]; // Fetch the first order (John Doe's order)
 console.log(`Total for ${order.customerName}'s order: $${calculateOrderTotal(order)}`);
+
+// Task 5: Function to Mark an Order as Completed
+// This function takes a customer's name and updates their order status to 'Completed'.
+function completeOrder(customerName) {
+    const order = orders.find(o => o.customerName === customerName); // Find the customer's order by name
+    
+    if (order) {
+        order.status = 'Completed'; // Change the order status to 'Completed'
+        console.log(`Order for ${customerName} has been marked as completed.`);
+    } else {
+        console.log(`Error: No order found for ${customerName}.`); // Error if no matching order is found
+    }
+}
+
+// Example usage of completeOrder function:
+completeOrder('John Doe');
+completeOrder('Jane Smith'); // Error due to no order for Jane
