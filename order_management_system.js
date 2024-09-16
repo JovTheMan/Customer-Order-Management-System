@@ -10,3 +10,11 @@ const inventory = [
 // Output: Display the initialized inventory
 console.log("Inventory initialized:");
 console.log(inventory);
+
+// Task 2: Create an Orders Array of Order Objects
+// This empty array will store customer orders. Each order will have customer name, ordered items, and order status.
+const orders = [];
+
+// Output: Display the initialized orders array
+console.log("Orders array initialized:");
+console.log(orders);
