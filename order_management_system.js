@@ -91,3 +91,36 @@ function completeOrder(customerName) {
 // Example usage of completeOrder function:
 completeOrder('John Doe');
 completeOrder('Jane Smith'); // Error due to no order for Jane
+
+// Task 6: Function to Check Pending Orders
+// This function iterates over the orders array and logs details of all orders that are still marked as 'Pending'.
+function checkPendingOrders() {
+    orders.forEach(order => {
+        if (order.status === 'Pending') {
+            console.log(`Pending Order for ${order.customerName}:`);
+            console.log(`Items: ${JSON.stringify(order.items)}`);
+        }
+    });
+}
+
+// Example usage of checkPendingOrders function:
+checkPendingOrders(); // Logs all pending orders
+
+// Example of running multiple tasks together
+console.log("--- Initial Inventory ---");
+console.log(inventory);
+
+placeOrder('John Doe', [{ name: 'Espresso', quantity: 2 }, { name: 'Latte', quantity: 1 }]);
+placeOrder('Jane Smith', [{ name: 'Mocha', quantity: 5 }]); // Error due to insufficient stock
+
+console.log("--- Orders ---");
+console.log(orders);
+
+console.log("--- Calculating Total for John's Order ---");
+console.log(`Total: $${calculateOrderTotal(orders[0])}`);
+
+completeOrder('John Doe');
+completeOrder('Jane Smith'); // Error due to no order for Jane
+
+console.log("--- Checking Pending Orders ---");
+checkPendingOrders();
